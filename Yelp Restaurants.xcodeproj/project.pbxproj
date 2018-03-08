@@ -26,6 +26,7 @@
 		3223E47420503350006813BA /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3223E47320503350006813BA /* DetailsViewController.swift */; };
 		3223E47E20509788006813BA /* ReviewImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3223E47D20509788006813BA /* ReviewImageCollectionViewCell.swift */; };
 		3223E48020509F38006813BA /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3223E47F20509F38006813BA /* ReviewTableViewCell.swift */; };
+		3223E4842050DEEA006813BA /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3223E4832050DEEA006813BA /* FXBlurView.m */; };
 		61F124742656A7E334E705AC /* Pods_Yelp_RestaurantsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEC272B83CA8F45B66DFE6F /* Pods_Yelp_RestaurantsTests.framework */; };
 		ADEC8C4C1AF48DF87E7ACD03 /* Pods_Yelp_Restaurants.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B20EF975EDBE032414D54270 /* Pods_Yelp_Restaurants.framework */; };
 /* End PBXBuildFile section */
@@ -72,6 +73,9 @@
 		3223E47320503350006813BA /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		3223E47D20509788006813BA /* ReviewImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		3223E47F20509F38006813BA /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
+		3223E4812050DEE8006813BA /* Yelp Restaurants-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Yelp Restaurants-Bridging-Header.h"; sourceTree = "<group>"; };
+		3223E4822050DEE9006813BA /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
+		3223E4832050DEEA006813BA /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		4CEC272B83CA8F45B66DFE6F /* Pods_Yelp_RestaurantsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yelp_RestaurantsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C7F31E106998C2EEDD6891 /* Pods_Yelp_RestaurantsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yelp_RestaurantsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D5C9B1C80B569ADE3BAA6D0 /* Pods-Yelp RestaurantsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yelp RestaurantsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Yelp RestaurantsUITests/Pods-Yelp RestaurantsUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -175,6 +179,8 @@
 		3218FF32204E3138008CC15C /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				3223E4822050DEE9006813BA /* FXBlurView.h */,
+				3223E4832050DEEA006813BA /* FXBlurView.m */,
 				3218FF3C204F8B00008CC15C /* Main.storyboard */,
 				3218FF40204F95BC008CC15C /* Details.storyboard */,
 				3218FF3A204E3BCA008CC15C /* MainViewController.swift */,
@@ -182,6 +188,7 @@
 				3223E47D20509788006813BA /* ReviewImageCollectionViewCell.swift */,
 				3223E47320503350006813BA /* DetailsViewController.swift */,
 				3223E47F20509F38006813BA /* ReviewTableViewCell.swift */,
+				3223E4812050DEE8006813BA /* Yelp Restaurants-Bridging-Header.h */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -295,6 +302,7 @@
 				TargetAttributes = {
 					3218FEFB204E2665008CC15C = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Manual;
 					};
 					3218FF0F204E2665008CC15C = {
@@ -519,6 +527,7 @@
 				3223E47E20509788006813BA /* ReviewImageCollectionViewCell.swift in Sources */,
 				3218FF39204E320B008CC15C /* NetworkManager.swift in Sources */,
 				3223E47420503350006813BA /* DetailsViewController.swift in Sources */,
+				3223E4842050DEEA006813BA /* FXBlurView.m in Sources */,
 				3218FF3B204E3BCA008CC15C /* MainViewController.swift in Sources */,
 				3218FF00204E2665008CC15C /* AppDelegate.swift in Sources */,
 				3223E48020509F38006813BA /* ReviewTableViewCell.swift in Sources */,
@@ -684,6 +693,7 @@
 			baseConfigurationReference = 0B08E899056ADA213C3541AC /* Pods-Yelp Restaurants.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Yelp Restaurants/Info.plist";
@@ -692,6 +702,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.powerkm.Yelp-Restaurants";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Yelp Restaurants/Scenes/Yelp Restaurants-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -702,6 +714,7 @@
 			baseConfigurationReference = 8BEA28AC4E687158FFE74F12 /* Pods-Yelp Restaurants.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Yelp Restaurants/Info.plist";
@@ -710,6 +723,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.powerkm.Yelp-Restaurants";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Yelp Restaurants/Scenes/Yelp Restaurants-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

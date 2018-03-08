@@ -11,15 +11,16 @@ import SDWebImage
 
 class DetailsViewController: UIViewController {
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var reviewTableView: UITableView!
-    @IBOutlet var headerView: UIView!
     @IBOutlet weak var imageCollectionView: UICollectionView!
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ratingReviewlabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
-
+    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
+    
     var imageRendered = false
     var reviewRendered = false
     var reviews: [Review] = []
@@ -69,10 +70,13 @@ class DetailsViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
 
+        tableViewHeight.constant = self.view.frame.height
+        scrollView.bounces = false
+        reviewTableView.bounces = true
+
         flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0
         imageCollectionView.isPagingEnabled = true
-        reviewTableView.tableHeaderView = headerView
         reviewTableView.tableFooterView = UIView()
         displayContent()
         updateReviewImages()
@@ -148,6 +152,18 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
             cell.review = reviews[indexPath.row]
         }
         return cell
+    }
+}
+
+extension DetailsViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView == self.scrollView {
+            reviewTableView.isScrollEnabled = (scrollView.contentOffset.y >= 300)
+        }
+
+        if scrollView == self.reviewTableView {
+            reviewTableView.isScrollEnabled = (reviewTableView.contentOffset.y > 0)
+        }
     }
 }
 
