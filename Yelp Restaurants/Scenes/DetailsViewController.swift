@@ -185,8 +185,9 @@ extension DetailsViewController: UIScrollViewDelegate {
             let headerSizevariation = ((imageCollectionView.bounds.height * (1.0 + headerScaleFactor)) - imageCollectionView.bounds.height)/2.0
             headerTransform = CATransform3DTranslate(headerTransform, 0, headerSizevariation, 0)
             headerTransform = CATransform3DScale(headerTransform, 1.0 + headerScaleFactor, 1.0 + headerScaleFactor, 0)
-            
-            imageCollectionView.visibleCells[0].layer.transform = headerTransform
+            if imageCollectionView.visibleCells.count > 0 {
+                imageCollectionView.visibleCells[0].layer.transform = headerTransform
+            }
             self.view.bringSubview(toFront: self.imageCollectionView)
             
         } else {
