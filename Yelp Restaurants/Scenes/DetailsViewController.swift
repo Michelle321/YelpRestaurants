@@ -72,8 +72,8 @@ class DetailsViewController: UIViewController {
         self.navigationController?.view.backgroundColor = .clear
 
         tableViewHeight.constant = self.view.frame.height
-        scrollView.bounces = false
-        reviewTableView.bounces = true
+        //scrollView.bounces = false
+        //reviewTableView.bounces = true
 
         flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0
@@ -172,16 +172,36 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
 extension DetailsViewController: UIScrollViewDelegate {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-
+        
+        if scrollView == self.imageCollectionView {
+            return
+        }
+        
         let offset = scrollView.contentOffset.y
-        if offset >= 0 && offset < self.imageCollectionView.bounds.size.height {
-            shadowView?.alpha = min (1.0, (offset - 64)/self.imageCollectionView.bounds.size.height)
-            if offset > self.imageCollectionView.bounds.size.height - 64 {
-                Helper.setStatusBarBackgroundColor(color: UIColor.red)
-                self.navigationController?.navigationBar.backgroundColor = UIColor.red
-            }else{
-                Helper.setStatusBarBackgroundColor(color: UIColor.clear)
-                self.navigationController?.navigationBar.backgroundColor = UIColor.clear
+        
+        if offset <= 0 {
+            var headerTransform = CATransform3DIdentity
+            let headerScaleFactor:CGFloat = -(offset) / imageCollectionView.bounds.height
+            let headerSizevariation = ((imageCollectionView.bounds.height * (1.0 + headerScaleFactor)) - imageCollectionView.bounds.height)/2.0
+            headerTransform = CATransform3DTranslate(headerTransform, 0, headerSizevariation, 0)
+            headerTransform = CATransform3DScale(headerTransform, 1.0 + headerScaleFactor, 1.0 + headerScaleFactor, 0)
+            
+            imageCollectionView.visibleCells[0].layer.transform = headerTransform
+
+            self.view.bringSubview(toFront: self.imageCollectionView)
+            
+        } else {
+            
+            self.view.bringSubview(toFront: self.scrollView)
+            if offset < self.imageCollectionView.bounds.size.height + 64 {
+                shadowView?.alpha = min (1.0, (offset - 64)/self.imageCollectionView.bounds.size.height)
+                if offset > self.imageCollectionView.bounds.size.height - 64 {
+                    Helper.setStatusBarBackgroundColor(color: UIColor.red)
+                    self.navigationController?.navigationBar.backgroundColor = UIColor.red
+                }else{
+                    Helper.setStatusBarBackgroundColor(color: UIColor.clear)
+                    self.navigationController?.navigationBar.backgroundColor = UIColor.clear
+                }
             }
         }
 
