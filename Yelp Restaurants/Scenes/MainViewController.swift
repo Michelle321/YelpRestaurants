@@ -21,6 +21,7 @@ class MainViewController: UITableViewController {
     var currentSearchTerm = "ethiopian"
 
     override func viewDidLoad() {
+        super.viewDidLoad()
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.scopeButtonTitles = [RestaurantSort.best_match.rawValue,
@@ -69,6 +70,15 @@ class MainViewController: UITableViewController {
             cell.restaurant = restaurants[indexPath.row]
         }
         return cell
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "viewDetailofRestaurant" {
+            if let viewController = segue.destination as? DetailsViewController {
+                let selectedRow = tableView.indexPathForSelectedRow!.row
+                viewController.restaurant = restaurants[selectedRow]
+            }
+        }
     }
 }
 

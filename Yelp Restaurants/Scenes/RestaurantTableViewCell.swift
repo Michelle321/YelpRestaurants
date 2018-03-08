@@ -26,7 +26,7 @@ class RestaurantTableViewCell: UITableViewCell {
                 if let imageUrl = URL.init(string: restaurant.profileImageUrlString){
                     profileImageView.sd_setImage(with: imageUrl)
                 }
-                Rating.text = "Rating: \(restaurant.rating) and \(restaurant.reviewCount) reviews"
+                Rating.text = "Rating: \(restaurant.rating) with \(restaurant.reviewCount) reviews"
             }
         }
     }

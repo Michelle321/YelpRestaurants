@@ -23,6 +23,9 @@
 		3218FF3D204F8B00008CC15C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3218FF3C204F8B00008CC15C /* Main.storyboard */; };
 		3218FF3F204F8F65008CC15C /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3218FF3E204F8F65008CC15C /* RestaurantTableViewCell.swift */; };
 		3218FF41204F95BC008CC15C /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3218FF40204F95BC008CC15C /* Details.storyboard */; };
+		3223E47420503350006813BA /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3223E47320503350006813BA /* DetailsViewController.swift */; };
+		3223E47E20509788006813BA /* ReviewImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3223E47D20509788006813BA /* ReviewImageCollectionViewCell.swift */; };
+		3223E48020509F38006813BA /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3223E47F20509F38006813BA /* ReviewTableViewCell.swift */; };
 		61F124742656A7E334E705AC /* Pods_Yelp_RestaurantsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEC272B83CA8F45B66DFE6F /* Pods_Yelp_RestaurantsTests.framework */; };
 		ADEC8C4C1AF48DF87E7ACD03 /* Pods_Yelp_Restaurants.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B20EF975EDBE032414D54270 /* Pods_Yelp_Restaurants.framework */; };
 /* End PBXBuildFile section */
@@ -66,6 +69,9 @@
 		3218FF3C204F8B00008CC15C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3218FF3E204F8F65008CC15C /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
 		3218FF40204F95BC008CC15C /* Details.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
+		3223E47320503350006813BA /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		3223E47D20509788006813BA /* ReviewImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		3223E47F20509F38006813BA /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
 		4CEC272B83CA8F45B66DFE6F /* Pods_Yelp_RestaurantsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yelp_RestaurantsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C7F31E106998C2EEDD6891 /* Pods_Yelp_RestaurantsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yelp_RestaurantsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D5C9B1C80B569ADE3BAA6D0 /* Pods-Yelp RestaurantsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yelp RestaurantsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Yelp RestaurantsUITests/Pods-Yelp RestaurantsUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -173,6 +179,9 @@
 				3218FF40204F95BC008CC15C /* Details.storyboard */,
 				3218FF3A204E3BCA008CC15C /* MainViewController.swift */,
 				3218FF3E204F8F65008CC15C /* RestaurantTableViewCell.swift */,
+				3223E47D20509788006813BA /* ReviewImageCollectionViewCell.swift */,
+				3223E47320503350006813BA /* DetailsViewController.swift */,
+				3223E47F20509F38006813BA /* ReviewTableViewCell.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -507,9 +516,12 @@
 			files = (
 				3218FF35204E31C7008CC15C /* Restaurant.swift in Sources */,
 				3218FF37204E31D7008CC15C /* Review.swift in Sources */,
+				3223E47E20509788006813BA /* ReviewImageCollectionViewCell.swift in Sources */,
 				3218FF39204E320B008CC15C /* NetworkManager.swift in Sources */,
+				3223E47420503350006813BA /* DetailsViewController.swift in Sources */,
 				3218FF3B204E3BCA008CC15C /* MainViewController.swift in Sources */,
 				3218FF00204E2665008CC15C /* AppDelegate.swift in Sources */,
+				3223E48020509F38006813BA /* ReviewTableViewCell.swift in Sources */,
 				3218FF3F204F8F65008CC15C /* RestaurantTableViewCell.swift in Sources */,
 				3218FF2E204E2C2E008CC15C /* Constants.swift in Sources */,
 			);
