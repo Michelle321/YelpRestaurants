@@ -144,6 +144,10 @@
                                                     <outlet property="delegate" destination="vrq-Da-tcE" id="6F5-eP-b8u"/>
                                                 </connections>
                                             </collectionView>
+                                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sEq-KO-3zD">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+                                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hRG-Ia-veg">
                                                 <rect key="frame" x="0.0" y="250" width="375" height="150"/>
                                                 <subviews>
@@ -194,9 +198,13 @@
                                         <constraints>
                                             <constraint firstItem="hRG-Ia-veg" firstAttribute="top" secondItem="Ebo-py-1lo" secondAttribute="bottom" id="4ZE-kC-EUp"/>
                                             <constraint firstAttribute="trailing" secondItem="hRG-Ia-veg" secondAttribute="trailing" id="6HE-fq-QYf"/>
+                                            <constraint firstItem="sEq-KO-3zD" firstAttribute="top" secondItem="Ebo-py-1lo" secondAttribute="top" id="6sS-JI-y4E"/>
+                                            <constraint firstItem="sEq-KO-3zD" firstAttribute="width" secondItem="Ebo-py-1lo" secondAttribute="width" id="Bh3-EC-ZVl"/>
                                             <constraint firstItem="hRG-Ia-veg" firstAttribute="leading" secondItem="1Yc-rD-54M" secondAttribute="leading" id="Gw6-io-uNR"/>
                                             <constraint firstAttribute="trailing" secondItem="Ebo-py-1lo" secondAttribute="trailing" id="I1T-5T-Zb6"/>
+                                            <constraint firstItem="sEq-KO-3zD" firstAttribute="height" secondItem="Ebo-py-1lo" secondAttribute="height" id="WFw-g9-Li1"/>
                                             <constraint firstItem="Ebo-py-1lo" firstAttribute="leading" secondItem="1Yc-rD-54M" secondAttribute="leading" id="b7y-pi-1UT"/>
+                                            <constraint firstItem="sEq-KO-3zD" firstAttribute="leading" secondItem="Ebo-py-1lo" secondAttribute="leading" id="cKG-qE-2fJ"/>
                                             <constraint firstItem="Ebo-py-1lo" firstAttribute="top" secondItem="1Yc-rD-54M" secondAttribute="top" id="f1A-YF-dQV"/>
                                             <constraint firstAttribute="bottom" secondItem="hRG-Ia-veg" secondAttribute="bottom" constant="15" id="gbv-dt-EH1"/>
                                         </constraints>
@@ -212,6 +220,9 @@
                                     <constraint firstItem="1Yc-rD-54M" firstAttribute="top" secondItem="Xxg-Zx-OyB" secondAttribute="top" id="tds-N7-eMd"/>
                                     <constraint firstItem="h99-mk-htk" firstAttribute="leading" secondItem="Xxg-Zx-OyB" secondAttribute="leading" id="tuY-ET-lww"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="vrq-Da-tcE" id="zHH-FF-SXj"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -232,6 +243,7 @@
                         <outlet property="ratingReviewlabel" destination="F7p-n8-OYl" id="SBA-35-Pia"/>
                         <outlet property="reviewTableView" destination="h99-mk-htk" id="cQJ-wn-GE9"/>
                         <outlet property="scrollView" destination="Xxg-Zx-OyB" id="OEb-dH-i5h"/>
+                        <outlet property="shadowView" destination="sEq-KO-3zD" id="j8h-k8-bNG"/>
                         <outlet property="tableViewHeight" destination="0xx-EU-Dfq" id="aQH-yw-LPJ"/>
                     </connections>
                 </viewController>

@@ -20,6 +20,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var shadowView: UIView!
     
     var imageRendered = false
     var reviewRendered = false
@@ -156,7 +157,26 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension DetailsViewController: UIScrollViewDelegate {
+
+    func setStatusBarBackgroundColor(color: UIColor) {
+        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
+        statusBar.backgroundColor = color
+    }
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+
+        let offset = scrollView.contentOffset.y
+        if offset > 0 {
+            shadowView?.alpha = min (0.8, (offset - 64)/self.imageCollectionView.bounds.size.height)
+            if offset > self.imageCollectionView.bounds.size.height - 64 {
+                setStatusBarBackgroundColor(color: UIColor.red)
+                self.navigationController?.navigationBar.backgroundColor = UIColor.red
+            }else{
+                setStatusBarBackgroundColor(color: UIColor.clear)
+                self.navigationController?.navigationBar.backgroundColor = UIColor.clear
+            }
+        }
+
         if scrollView == self.scrollView {
             reviewTableView.isScrollEnabled = (scrollView.contentOffset.y >= 300)
         }
