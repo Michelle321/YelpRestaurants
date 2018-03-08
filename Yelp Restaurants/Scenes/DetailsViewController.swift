@@ -84,6 +84,18 @@ class DetailsViewController: UIViewController {
         updateReviews()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        scrollView.scrollsToTop = true
+        self.navigationController?.navigationBar.backgroundColor = UIColor.clear
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        Helper.setStatusBarBackgroundColor(color: UIColor.clear)
+        self.navigationController?.navigationBar.backgroundColor = UIColor.clear
+    }
+    
     func displayContent(){
         nameLabel.text = restaurant?.name ?? ""
         if let restaurant = restaurant {
@@ -158,21 +170,16 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension DetailsViewController: UIScrollViewDelegate {
 
-    func setStatusBarBackgroundColor(color: UIColor) {
-        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
-        statusBar.backgroundColor = color
-    }
-
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
         let offset = scrollView.contentOffset.y
-        if offset > 0 && offset < self.imageCollectionView.bounds.size.height {
+        if offset >= 0 && offset < self.imageCollectionView.bounds.size.height {
             shadowView?.alpha = min (1.0, (offset - 64)/self.imageCollectionView.bounds.size.height)
             if offset > self.imageCollectionView.bounds.size.height - 64 {
-                setStatusBarBackgroundColor(color: UIColor.red)
+                Helper.setStatusBarBackgroundColor(color: UIColor.red)
                 self.navigationController?.navigationBar.backgroundColor = UIColor.red
             }else{
-                setStatusBarBackgroundColor(color: UIColor.clear)
+                Helper.setStatusBarBackgroundColor(color: UIColor.clear)
                 self.navigationController?.navigationBar.backgroundColor = UIColor.clear
             }
         }
