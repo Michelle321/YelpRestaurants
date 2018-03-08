@@ -21,6 +21,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var shadowView: UIView!
+    @IBOutlet var headerView: UIView!
     
     var imageRendered = false
     var reviewRendered = false
@@ -72,12 +73,11 @@ class DetailsViewController: UIViewController {
         self.navigationController?.view.backgroundColor = .clear
 
         tableViewHeight.constant = self.view.frame.height
-        //scrollView.bounces = false
-        //reviewTableView.bounces = true
 
         flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0
         imageCollectionView.isPagingEnabled = true
+        reviewTableView.tableHeaderView = headerView
         reviewTableView.tableFooterView = UIView()
         displayContent()
         updateReviewImages()
@@ -187,7 +187,6 @@ extension DetailsViewController: UIScrollViewDelegate {
             headerTransform = CATransform3DScale(headerTransform, 1.0 + headerScaleFactor, 1.0 + headerScaleFactor, 0)
             
             imageCollectionView.visibleCells[0].layer.transform = headerTransform
-
             self.view.bringSubview(toFront: self.imageCollectionView)
             
         } else {
@@ -206,7 +205,7 @@ extension DetailsViewController: UIScrollViewDelegate {
         }
 
         if scrollView == self.scrollView {
-            reviewTableView.isScrollEnabled = (scrollView.contentOffset.y >= 300)
+            reviewTableView.isScrollEnabled = (scrollView.contentOffset.y >= 250)
         }
 
         if scrollView == self.reviewTableView {
