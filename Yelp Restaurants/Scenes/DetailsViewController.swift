@@ -166,8 +166,8 @@ extension DetailsViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
         let offset = scrollView.contentOffset.y
-        if offset > 0 {
-            shadowView?.alpha = min (0.8, (offset - 64)/self.imageCollectionView.bounds.size.height)
+        if offset > 0 && offset < self.imageCollectionView.bounds.size.height {
+            shadowView?.alpha = min (1.0, (offset - 64)/self.imageCollectionView.bounds.size.height)
             if offset > self.imageCollectionView.bounds.size.height - 64 {
                 setStatusBarBackgroundColor(color: UIColor.red)
                 self.navigationController?.navigationBar.backgroundColor = UIColor.red
