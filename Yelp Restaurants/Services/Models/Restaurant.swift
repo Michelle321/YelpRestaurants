@@ -16,7 +16,6 @@ class Restaurant {
     let profileImageUrlString: String
     let reviewCount: Int
     let rating: Float
-    let distance: Float
     var detailImageUrlStrings: [String] = []
 
     init?(json: [String: Any]) {
@@ -26,7 +25,6 @@ class Restaurant {
             let reviewCount = json["review_count"] as? Int,
             let rating = json["rating"] as? Float,
             let phoneNumber = json["display_phone"] as? String,
-            let distance = json["distance"] as? Float,
             let address = json["location"] as? [String: Any],
             let displayAddress = address["display_address"] as? [String]
             else {
@@ -39,7 +37,6 @@ class Restaurant {
         self.reviewCount = reviewCount
         self.rating = rating
         self.phoneNumber = phoneNumber
-        self.distance = distance
         self.address = displayAddress.joined(separator: " ")
     }
 
